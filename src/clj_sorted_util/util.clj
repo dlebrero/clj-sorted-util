@@ -15,7 +15,7 @@
   (if-let [f (first coll)]
     (lazy-seq (cons f (remove-dups (drop-while #(= f %) coll))))))
 
-(defn compare-first-elements-with [comparator]
+(defn compare-first-elements-with [^java.util.Comparator comparator]
   "Returns a function that will compare the first elements of a collection with comparator"
   (fn [a b] (.compare comparator (first a) (first b))))
 
